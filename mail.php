@@ -63,6 +63,7 @@
 		<th>comment_id</th>
 		<th>user_id</th>
 		<th>text</th>
+		<th>Answer</th>
 	</tr>
 	
 	<?php
@@ -80,7 +81,7 @@
 				echo "<td>".$mail_list[$i]->comment_id."</td>";
 				echo "<td>".$mail_list[$i]->id_mail."</td>";
 				echo "<td>".$mail_list[$i]->text."</td>";
-			
+				echo "<td><a href='answer.php?edit=".$mail_list[$i]->id."'>saada meili answ</a></td>";
 				echo "</tr>";
 			}
 			
