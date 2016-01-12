@@ -81,7 +81,7 @@
 		
 			$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
 			
-			$stmt = $mysqli->prepare("SELECT comment_id, user_id, text FROM eksam_comment where email = ?");
+			$stmt = $mysqli->prepare("SELECT comment_id, user_id, text FROM eksam_comment where send_email = ?");
 			$stmt->bind_param("s", $email_from_db);
 			$stmt->bind_result($comment_id, $id_mail, $text);
 			$stmt->execute();

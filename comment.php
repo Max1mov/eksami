@@ -72,7 +72,7 @@
 	Tere, <?=$_SESSION["user_email"];?>
 	<a href="?logout=1"> Logi välja</a>
 </p>
-
+<?php require_once("menu.php"); ?>
 
 
 

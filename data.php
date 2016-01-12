@@ -79,7 +79,11 @@
 		exit();
 		
 	}
-
+	
+	
+	
+	
+	
 	
 	
 ?>
@@ -90,8 +94,10 @@
 </p>
 
 <p>
-	Vaata sinu meili <a href="mail.php"> siin</a>
+	Vaata sinu uus meili <a href="mail.php"> siin</a>
 </p>
+
+<?php require_once("menu.php"); ?>
 
 <h2>Profiilipilt</h2>
 
