@@ -59,30 +59,13 @@
 	}
 	
 	
-	function deleteCar($id_to_be_deleted){
-		
-		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
-		
-		$stmt = $mysqli->prepare("UPDATE car_plates SET deleted=NOW() WHERE id=?");
-		$stmt->bind_param("i", $id_to_be_deleted);
-		
-		if($stmt->execute()){
-			// sai edukalt kustutatud
-			header("Location: table.php");
-			
-		}
-		
-		$stmt->close();
-		$mysqli->close();
-		
-	}
 	
 		function getMailData(){
 		
 			$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
 			
 			$stmt = $mysqli->prepare("SELECT comment_id, user_id, text FROM eksam_comment where send_email = ?");
-			$stmt->bind_param("s", $email_from_db);
+			$stmt->bind_param("s", $_SESSION["email_from_db"]);
 			$stmt->bind_result($comment_id, $id_mail, $text);
 			$stmt->execute();
 

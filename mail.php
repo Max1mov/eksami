@@ -66,6 +66,8 @@
 	</tr>
 	
 	<?php
+		$mail_list = GetMailData();
+		//var_dump($car_list);
 	
 		// iga massiivis olema elemendi kohta
 		// count($car_list) - massiivi pikkus
