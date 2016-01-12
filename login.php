@@ -46,10 +46,8 @@
 			if($password_error == "" && $email_error == ""){
 				echo "Võib sisse logida! Kasutajanimi on ".$email." ja parool on ".$password;
 				
-				$password_hash = hash("sha512", $password);
-				
 				// User klassi sees olev funktsioon
-				$login_response = $User->loginUser($email, $password_hash);
+				$login_response = $User->loginUser($email, $password);
 				
 				//kasutaja on sisse logitud
 				if(isset($login_response->success)){
@@ -102,12 +100,8 @@
 			if(	$create_email_error == "" && $create_password_error == ""){
 				echo "Võib kasutajat luua! Kasutajanimi on ".$create_email." ja parool on ".$create_password;
 				
-				$password_hash = hash("sha512", $create_password);
-				echo "<br>";
-				echo $password_hash;
-				
 				// User klassi sees olev funktsioon
-				$create_response = $User->createUser($create_email, $password_hash);
+				$create_response = $User->createUser($create_email, $create_password);
 				
 			}
 
