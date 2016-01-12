@@ -1,8 +1,10 @@
 <?php
 	
 	// table.php
+	require_once("User.class.php");
 	require_once("functions.php");
-	require_once("edit_comment.php");
+	
+
 	
 	
 	//kasutaja tahab midagi muuta
@@ -23,30 +25,40 @@
 	
 	
 	
-	$user_list = getUserData();
+	$mail_list = GetMailData();
 	//var_dump($car_list);
 
+	
+	
 ?>
+
+
+
+
+
+
+
+<html><body style="background-color:lightgrey;"></body></html>
 <table border=1 >
 	<tr>
-		<th>kasut id</th>
-		<th>kasut email</th>
-		<th>saada sõnum</th>
+		<th>comment_id</th>
+		<th>user_id</th>
+		<th>text</th>
 	</tr>
 	
 	<?php
 	
 		// iga massiivis olema elemendi kohta
 		// count($car_list) - massiivi pikkus
-		for($i = 0; $i < count($user_list); $i++){
+		for($i = 0; $i < count($mail_list); $i++){
 			// $i = $i +1; sama mis $i += 1; sama mis $i++;
 			
 				// tavaline rida
 				echo "<tr>";
 			
-				echo "<td>".$user_list[$i]->id."</td>";
-				echo "<td>".$user_list[$i]->email."</td>";
-				echo "<td><a href='comment.php?edit=".$user_list[$i]->id."'>comment.php</a></td>";
+				echo "<td>".$mail_list[$i]->comment_id."</td>";
+				echo "<td>".$mail_list[$i]->id_mail."</td>";
+				echo "<td>".$mail_list[$i]->text."</td>";
 			
 				echo "</tr>";
 			}
@@ -57,13 +69,4 @@
 	?>
 
 </table>
-
-<!DOCTYPE html>
-<html>
-<body style="background-color:lightgrey;">
-
-<h1>This is a heading</h1>
-<p>This is a paragraph.</p>
-
-</body>
-</html>
+<html><body style="background-color:lightgrey;"></body></html>

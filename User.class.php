@@ -130,4 +130,6 @@ class User {
 		return $response;
 	}
 	
-} ?>
+} 
+
+?>

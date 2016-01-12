@@ -79,11 +79,7 @@
 		exit();
 		
 	}
-	
-	
-	
-	
-	
+
 	
 	
 ?>
@@ -91,6 +87,10 @@
 <p>
 	Tere, <?=$_SESSION["user_email"];?>
 	<a href="?logout=1"> Logi välja</a>
+</p>
+
+<p>
+	Vaata sinu meili <a href="mail.php"> siin</a>
 </p>
 
 <h2>Profiilipilt</h2>
@@ -113,4 +113,5 @@
 		<input type="submit" value="Upload Image" name="submit">
 	</form>
 <?php endif; ?>
+<?php require_once("table.php"); ?>
 

@@ -124,8 +124,20 @@
 <html>
 <head>
   <title>Login</title>
+  
+  
+<h1>This is a heading</h1>
+<p>This is a paragraph.</p>
+
 </head>
 <body>
+
+<!DOCTYPE html>
+
+<body style="background-color:lightgrey;"></body>
+
+
+
 
   <h2>Log in</h2>
   

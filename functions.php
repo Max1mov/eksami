@@ -2,7 +2,7 @@
 
 	require_once("../config.php");
 	require_once("User.class.php");
-	require_once("edit_functions.php");
+	require_once("edit_comment.php");
 	
 	
 	$database = "if15_vitamak";
@@ -17,6 +17,10 @@
 	
 	//var_dump($User->connection);
 	//loome uue funktsiooni, et küsida ab'ist andmeid
+	
+	
+	
+	
 	function getUserData(){
 		
 		$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
@@ -73,4 +77,44 @@
 		
 	}
 	
+		function getMailData(){
+		
+			$mysqli = new mysqli($GLOBALS["servername"], $GLOBALS["server_username"], $GLOBALS["server_password"], $GLOBALS["database"]);
+			
+			$stmt = $mysqli->prepare("SELECT comment_id, user_id, text FROM eksam_comment where email = ?");
+			$stmt->bind_param("s", $email_from_db);
+			$stmt->bind_result($comment_id, $id_mail, $text);
+			$stmt->execute();
+
+			
+			// tühi massiiv kus hoiame objekte (1 rida andmeid)
+			$array = array();
+			
+			// tee tsüklit nii mitu korda, kui saad 
+			// ab'ist ühe rea andmeid
+			while($stmt->fetch()){
+				
+				// loon objekti iga while tsükli kord
+				$mail = new StdClass();
+				$mail->comment_id = $comment_id;
+				$mail->id_mail = $id_mail;
+				$mail->text = $text;
+				
+				// lisame selle massiivi
+				array_push($array, $mail);
+				//echo "<pre>";
+				//var_dump($array);
+				//echo "</pre>";
+				
+			}
+			
+			$stmt->close();
+			$mysqli->close();
+			
+			return $array;
+	}
+	
+	
+	
+
 ?>
